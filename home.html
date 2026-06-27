@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Categories</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h2>Online Quiz System!!</h2>
+    <button onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+    <h2>Welcome!</h2>
+    <p>Select a quiz category to begin.</p>
+
+    <div class="category">
+        <button onclick="StartQuiz('gk')">General Knowledge</button>
+        <button onclick="StartQuiz('html')">HTML</button>
+        <button onclick="StartQuiz('css')">CSS</button>
+        <button onclick="StartQuiz('javascript')">JavaScript</button>
+    </div>
+</div>
+
+<script>
+if(localStorage.getItem("login")!="true"){
+    window.location.href="index.html";
+}
+
+function StartQuiz(category){
+    localStorage.setItem("category", category);
+    window.location.href="quiz.html";
+}
+
+function logout(){
+    localStorage.removeItem("login");
+    localStorage.removeItem("category");
+    window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
